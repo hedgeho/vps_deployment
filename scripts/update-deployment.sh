@@ -25,7 +25,8 @@ if [ "$LOCAL" != "$REMOTE" ]; then
             exit 1
         fi
 
-        echo "$(date): Configuration validated, restarting services..." >> "$LOG_FILE"
+        echo "$(date): Configuration validated, pulling images and restarting services..." >> "$LOG_FILE"
+        docker compose pull >> "$LOG_FILE" 2>&1
         docker compose up -d --force-recreate >> "$LOG_FILE" 2>&1
         echo "$(date): Deployment updated successfully" >> "$LOG_FILE"
     else
@@ -33,5 +34,8 @@ if [ "$LOCAL" != "$REMOTE" ]; then
         exit 1
     fi
 else
-    echo "$(date): No changes detected" >> "$LOG_FILE"
+    echo "$(date): No changes detected, checking for image updates..." >> "$LOG_FILE"
+    docker compose pull >> "$LOG_FILE" 2>&1
+    docker compose up -d >> "$LOG_FILE" 2>&1
+    echo "$(date): Images updated" >> "$LOG_FILE"
 fi
