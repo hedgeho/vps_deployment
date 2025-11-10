@@ -1,9 +1,7 @@
 #!/bin/bash
 
-REPO_DIR="/path/to/vps_deployment"
-LOG_FILE="$REPO_DIR/update.log"
+LOG_FILE="update.log"
 
-cd "$REPO_DIR" || exit 1
 
 echo "$(date): Checking for updates..." >> "$LOG_FILE"
 
