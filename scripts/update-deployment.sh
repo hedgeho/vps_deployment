@@ -37,5 +37,5 @@ else
     echo "$(date): No changes detected, checking for image updates..." >> "$LOG_FILE"
     docker compose pull >> "$LOG_FILE" 2>&1
     docker compose up -d >> "$LOG_FILE" 2>&1
-    echo "$(date): Images updated" >> "$LOG_FILE"
+    echo "$(date): Images updated :)" >> "$LOG_FILE"
 fi
