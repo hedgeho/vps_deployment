@@ -1,0 +1,8 @@
+services:
+  bluesky-bot:
+    image: ghcr.io/hedgeho/bluesky_playground:latest
+    container_name: bluesky-bot
+    restart: unless-stopped
+    volumes:
+      - ./bluesky_data:/app/bluesky_data
+    # no need for web network or ports, as this is a bot without web interface

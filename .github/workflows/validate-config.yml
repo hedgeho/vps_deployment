@@ -12,5 +12,6 @@ jobs:
 
       - name: Validate Docker Compose files
         run: |
+          # checks all the imported files as well
           docker compose -f docker-compose.yml config > /dev/null
           echo "✓ docker-compose.yml is valid"
