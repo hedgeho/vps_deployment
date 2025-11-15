@@ -1,0 +1,7 @@
+services:
+  go-server:
+    image: ghcr.io/hedgeho/financial_kalevala:latest
+    container_name: kalevala
+    restart: unless-stopped
+    networks:
+      - web

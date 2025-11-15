@@ -1,3 +1,7 @@
 ilia.fi {
     reverse_proxy go-server:6969
 }
+
+kalevala.ilia.fi {
+    reverse_proxy kalevala:80
+}

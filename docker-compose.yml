@@ -2,6 +2,7 @@ include:
   - ilia.fi/docker-compose.yml  # personal website
   - caddy/docker-compose.yml  # reverse proxy
   - bluesky_bot/docker-compose.yml  # Bluesky yle-selkouutiset bot
+  - kalevala/docker-compose.yml  # Kalevala game - junction '25
 
 networks:
   web:
