@@ -3,6 +3,7 @@ include:
   - caddy/docker-compose.yml  # reverse proxy
   - bluesky_bot/docker-compose.yml  # Bluesky yle-selkouutiset bot
   - kalevala/docker-compose.yml  # Kalevala game - junction '25
+  - teapot/docker-compose.yml  # Reticulum node
 
 networks:
   web:
