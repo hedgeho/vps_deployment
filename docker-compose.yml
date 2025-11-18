@@ -1,9 +1,9 @@
 include:
-  - ilia.fi/docker-compose.yml  # personal website
-  - caddy/docker-compose.yml  # reverse proxy
-  - bluesky_bot/docker-compose.yml  # Bluesky yle-selkouutiset bot
-  - kalevala/docker-compose.yml  # Kalevala game - junction '25
-  - teapot/docker-compose.yml  # Reticulum node
+  - services/ilia.fi/docker-compose.yml  # personal website
+  - services/caddy/docker-compose.yml  # reverse proxy
+  - services/bluesky_bot/docker-compose.yml  # Bluesky yle-selkouutiset bot
+  - services/kalevala/docker-compose.yml  # Kalevala game - junction '25
+  - services/teapot/docker-compose.yml  # Reticulum node
 
 networks:
   web:
