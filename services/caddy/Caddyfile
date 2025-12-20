@@ -1,9 +1,8 @@
-{
-    log {
-        output file /var/log/caddy/access.log
-        format json
-    }
+log {
+    output file /var/log/caddy/access.log
+    format json
 }
+
 
 ilia.fi {
     reverse_proxy go-server:6969
