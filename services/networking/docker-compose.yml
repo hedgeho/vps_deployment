@@ -1,0 +1,48 @@
+services:
+  caddy: # Reverse proxy for ilia.fi & subdomains
+    image: caddy:2-alpine
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+      - ./logs:/var/log/caddy
+    networks:
+      - web
+
+  wireguard:
+    image: lscr.io/linuxserver/wireguard:latest
+    container_name: wireguard
+    restart: unless-stopped
+    ports:
+      - 51820:51820/udp
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Helsinki  # or your timezone
+      - SERVERURL=wg.ilia.fi  # auto-detects your VPS public IP
+      - SERVERPORT=51820
+      - PEERS=laptop  # creates one peer config for your laptop
+      - PEERDNS=9.9.9.9  # Cloudflare DNS
+      - INTERNAL_SUBNET=10.13.13.0
+      - ALLOWEDIPS=0.0.0.0/0  # routes all traffic through VPN
+      - LOG_CONFS=true
+    volumes:
+      - /wireguard_config:/config
+ #     - /lib/modules:/lib/modules #optional
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+
+    networks:
+      - web
+
+volumes:
+  caddy_data:
+  caddy_config:
