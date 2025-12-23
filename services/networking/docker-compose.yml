@@ -10,7 +10,7 @@ services:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
       - caddy_config:/config
-      - ./logs:/var/log/caddy
+      - ./caddy_logs:/var/log/caddy
     networks:
       - web
 
@@ -35,7 +35,7 @@ services:
       - ALLOWEDIPS=0.0.0.0/0  # routes all traffic through VPN
       - LOG_CONFS=true
     volumes:
-      - /wireguard_config:/config
+      - ./wireguard_config:/config
  #     - /lib/modules:/lib/modules #optional
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
