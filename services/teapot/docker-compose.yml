@@ -3,6 +3,7 @@ services:
     image: ghcr.io/hedgeho/teapot:latest
     container_name: teapot
     restart: unless-stopped
+    cpu: "0.2"
 
     network_mode: host
     cap_add:
