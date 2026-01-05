@@ -20,7 +20,7 @@ services:
     restart: unless-stopped
     ports:
       - 51820:51820/udp
-    cpu: "0.2"
+    cpus: "0.2"
 
     cap_add:
       - NET_ADMIN

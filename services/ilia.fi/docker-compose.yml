@@ -3,7 +3,7 @@ services:
     image: ghcr.io/hedgeho/ilia.fi:latest
     container_name: go-server
     restart: unless-stopped
-    cpu: "0.5"
+    cpus: "0.5"
 
     networks:
       - web
