@@ -23,6 +23,7 @@ services:
       ICMP_TUNNEL_LOG_FILE: /app/teapot/icmp/icmp_tunnel.log
       LOGS_PATH: /app/teapot/logs
       UV_CACHE_DIR: /tmp/uv-cache  # Set cache to writable location
+      PYTHONUNBUFFERED: 1  # print stdout right away
     #    ports:
     #      - "4242:4242"  # omitted due to network mode = host
     volumes:
