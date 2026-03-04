@@ -1,0 +1,16 @@
+services:
+  doorss:
+    image: ghcr.io/hedgeho/doorss:latest
+    container_name: doorss
+    restart: unless-stopped
+    cpus: "0.5"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    networks:
+      - web
+
+networks:
+  web:
+    external: true

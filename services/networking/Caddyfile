@@ -22,3 +22,9 @@ kalevala.ilia.fi {
 
     reverse_proxy kalevala:80
 }
+
+newsletter.ilia.fi {
+    log main
+
+    reverse_proxy doorss:8000
+}
