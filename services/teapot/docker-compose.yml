@@ -4,6 +4,7 @@ services:
     container_name: teapot
     restart: unless-stopped
     cpus: "0.2"
+    mem_limit: "512m"
 
     network_mode: host
     cap_add:
